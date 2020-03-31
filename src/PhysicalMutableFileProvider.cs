@@ -63,9 +63,7 @@ namespace Microsoft.Extensions.FileProviders
                 throw new InvalidOperationException();
             EnsureDirectoryExists(fileInfo.PhysicalPath);
 
-            var fileInfo2 = new FileInfo(fileInfo.PhysicalPath);
-            using var fs = fileInfo2.OpenWrite();
-            await fs.WriteAsync(content, 0, content.Length);
+            await File.WriteAllBytesAsync(fileInfo.PhysicalPath, content);
             return fileInfo;
         }
 
@@ -85,10 +83,7 @@ namespace Microsoft.Extensions.FileProviders
                 throw new InvalidOperationException();
             EnsureDirectoryExists(fileInfo.PhysicalPath);
 
-            var fileInfo2 = new FileInfo(fileInfo.PhysicalPath);
-            using var fs = fileInfo2.OpenWrite();
-            using var fw = new StreamWriter(fs);
-            await fw.WriteAsync(content);
+            await File.WriteAllTextAsync(fileInfo.PhysicalPath, content);
             return fileInfo;
         }
 
@@ -109,7 +104,7 @@ namespace Microsoft.Extensions.FileProviders
             EnsureDirectoryExists(fileInfo.PhysicalPath);
 
             var fileInfo2 = new FileInfo(fileInfo.PhysicalPath);
-            using var fs = fileInfo2.OpenWrite();
+            using var fs = fileInfo2.Open(FileMode.Truncate);
             await content.CopyToAsync(fs);
             return fileInfo;
         }
@@ -128,7 +123,7 @@ namespace Microsoft.Extensions.FileProviders
             EnsureDirectoryExists(fileInfo.PhysicalPath);
 
             var fileInfo2 = new FileInfo(fileInfo.PhysicalPath);
-            return fileInfo2.OpenWrite();
+            return fileInfo2.Open(FileMode.Truncate);
         }
     }
 }
