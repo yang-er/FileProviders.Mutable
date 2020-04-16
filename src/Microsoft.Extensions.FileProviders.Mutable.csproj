@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Title>Microsoft.Extensions.FileProviders.Mutable</Title>
-    <Version>3.1.1</Version>
+    <Version>3.1.3</Version>
     <Authors>yang-er</Authors>
     <Description>FileProvider implemention with mutable feature.</Description>
     <PackageProjectUrl>https://github.com/yang-er/FileProviders.Mutable</PackageProjectUrl>
@@ -11,8 +11,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>file;zip</PackageTags>
     <PackageReleaseNotes>FileProvider implemention with mutable feature.</PackageReleaseNotes>
-    <AssemblyVersion>3.1.1</AssemblyVersion>
-    <FileVersion>3.1.1</FileVersion>
+    <AssemblyVersion>3.1.3</AssemblyVersion>
+    <FileVersion>3.1.3</FileVersion>
     <RepositoryUrl>https://github.com/yang-er/FileProviders.Mutable</RepositoryUrl>
   </PropertyGroup>
 

@@ -104,7 +104,7 @@ namespace Microsoft.Extensions.FileProviders
             EnsureDirectoryExists(fileInfo.PhysicalPath);
 
             var fileInfo2 = new FileInfo(fileInfo.PhysicalPath);
-            using var fs = fileInfo2.Open(FileMode.Truncate);
+            using var fs = fileInfo2.Open(FileMode.Create);
             await content.CopyToAsync(fs);
             return fileInfo;
         }
@@ -123,7 +123,7 @@ namespace Microsoft.Extensions.FileProviders
             EnsureDirectoryExists(fileInfo.PhysicalPath);
 
             var fileInfo2 = new FileInfo(fileInfo.PhysicalPath);
-            return fileInfo2.Open(FileMode.Truncate);
+            return fileInfo2.Open(FileMode.Create);
         }
     }
 }
